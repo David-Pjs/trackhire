@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Obsidian + Ember palette ────────────────────────────────── */
+
+  /* Canvas — warm near-black (stone undertone, not cold blue-black) */
+  --color-canvas: #0C0A09;
+  --color-surface-1: #1C1917;
+  --color-surface-2: #292524;
+  --color-surface-3: #44403C;
+
+  /* Borders — hairline only, no shadows */
+  --color-hairline: #2C2926;
+  --color-hairline-strong: #44403C;
+
+  /* Text */
+  --color-ink: #FAFAF9;
+  --color-ink-muted: #A8A29E;
+  --color-ink-subtle: #78716C;
+  --color-ink-disabled: #57534E;
+
+  /* Ember — the single warm accent, used scarcely */
+  --color-ember: #F97316;
+  --color-ember-hover: #FB923C;
+  --color-ember-dim: #431407;
+
+  /* Status — each pipeline stage has its own color */
+  --color-applied: #3B82F6;
+  --color-applied-bg: #1D3461;
+  --color-screening: #A855F7;
+  --color-screening-bg: #3B1060;
+  --color-interview: #F59E0B;
+  --color-interview-bg: #451A03;
+  --color-offer: #22C55E;
+  --color-offer-bg: #052E16;
+  --color-rejected: #6B7280;
+  --color-rejected-bg: #1F2937;
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Prevent page-level horizontal scroll */
+html, body { overflow-x: hidden; }
+
+/* Responsive metrics grid — inline styles can't do media queries */
+.metrics-grid { grid-template-columns: 1fr 1fr; }
+@media (min-width: 768px) {
+  .metrics-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Landing page responsive grids */
+.hero-grid { grid-template-columns: 1fr; }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.features-grid { grid-template-columns: 1fr; }
+@media (min-width: 600px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .features-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Spin animation */
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 1s linear infinite; }
+
+/* Thin neutral scrollbar that fits the light theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D6D3D1;
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A29E;
+  background-clip: content-box;
+  border: 2px solid transparent;
+}
